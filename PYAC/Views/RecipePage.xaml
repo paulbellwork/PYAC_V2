@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="PYAC.Views.RecipePage"
+
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prism="http://prismlibrary.com/"        
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:PYAC.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Background="#EFEFEF" BorderBrush="#d94449" BorderThickness="0.5" CornerRadius="10,10,10,10" Margin="0"  Padding="5">
+
+        <Grid>
+            <!--COLUMNS-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--ROWS-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.5*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="1" Grid.Column="0" Background="White" BorderBrush="#dd565b" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5" />
+            <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="#dd565b" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5" />
+            <Border Grid.Row="2" Grid.Column="0" Background="White" BorderBrush="#dd565b" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5" />
+
+
+
+            <!--        "MIN_RAMP" 
+	        "MAX_RAMP" 
+	        "SOAK_SP" 
+	        "MIN_SOAK" 
+	        "MAX_SOAK" 
+	        "SOAK_TIME" 
+	        "LOW_TEMP_MODE_SP"  
+	        "ALARM_TEMP_TH"
+	        "LOW_TEMP_MODE_EN"
+-->
+
+
+            
+
+            <!--RECIPES-->            
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Recipes" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="9" />
+
+            <DataGrid Name="dataGridRecipes" CanUserAddRows="False" Grid.Row="1" Grid.Column="0" AutoGenerateColumns="False" ItemsSource="{Binding Recipes}" SelectedItem="{Binding Path=CurrentSelectedRecipe, Mode=TwoWay}" Margin="15" FontSize="15" FontFamily="Verdana">
+
+                
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="ID" Binding="{Binding Recipe_ID}"/>
+                    <DataGridTextColumn Header="Number" Binding="{Binding Recipe_Number}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Recipe_Name}"/>
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                    
+                </DataGrid.ColumnHeaderStyle>
+                
+
+                    <!--               <DataGrid.RowDetailsTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="0" Background="#95A5A6" Padding="10">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="ID: " VerticalAlignment="Center" />
+                                    <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding curr_Recipe.Recipe_ID}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Name: " VerticalAlignment="Center" />
+                                    <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding curr_Recipe.Recipe_Name}" VerticalAlignment="Center" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock FontSize="12" Text="Number: " VerticalAlignment="Center" />
+                                    <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding curr_Recipe.Recipe_Number}" VerticalAlignment="Center" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </DataGrid.RowDetailsTemplate>
+                
+ -->           </DataGrid>
+            <Button Grid.Row="2" Grid.Column="0" Content="Refresh" Command="{Binding RefreshRecipesCommand}" Background="White" BorderBrush="#dd565b" BorderThickness="2" Margin="5" />
+            <Button Grid.Row="2" Grid.Column="1" Content="Select Recipe" Command="{Binding SelectRecipeCommand}" Background="White" BorderBrush="#dd565b" BorderThickness="2" Margin="5" />
+
+            <!--<Rectangle Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Fill="Black" Width="2" Margin="0,2,0,0" Grid.Row="1"/>
+                -->
+
+            <!--SEGMENTS-->
+            <DataGrid Name="dataGridSegments" Grid.Row="1" Grid.Column="1" AutoGenerateColumns="False" ItemsSource="{Binding Segments}" SelectedItem="{Binding Path=CurrentSelectedRecipe, Mode=TwoWay}" Margin="15" FontSize="15" FontFamily="Verdana">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Segment"       Binding="{Binding Segment_ID}" />
+                    <DataGridTextColumn Header="Ramp SP"       Binding="{Binding RAMP_SP}"    />
+                    <DataGridTextColumn Header="Min Ramp"      Binding="{Binding MIN_RAMP}"   />
+                    <DataGridTextColumn Header="Max Ramp"      Binding="{Binding MAX_RAMP}"   />
+                    <DataGridTextColumn Header="Soak SP "      Binding="{Binding SOAK_SP }"   />
+                    <DataGridTextColumn Header="Min Soak"      Binding="{Binding MIN_SOAK}"   />
+                    <DataGridTextColumn Header="Max Soak"      Binding="{Binding MAX_SOAK}"   />
+                    <DataGridTextColumn Header="Soak Time"     Binding="{Binding SOAK_TIME}"  />
+                    <DataGridTextColumn Header="Low Temp SP"   Binding="{Binding LOW_TEMP_MODE_SP}" />
+                    <DataGridTextColumn Header="Alarm Temp TH" Binding="{Binding ALARM_TEMP_TH   }" />
+                    <DataGridTextColumn Header="Low Temp Mode" Binding="{Binding LOW_TEMP_MODE_EN}" />
+                </DataGrid.Columns>
+                <DataGrid.ColumnHeaderStyle>
+                    <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                        <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    </Style>
+                </DataGrid.ColumnHeaderStyle>
+            </DataGrid>
+
+        </Grid>
+
+    </Border>
+
+</UserControl>
+
