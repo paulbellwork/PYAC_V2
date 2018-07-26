@@ -1,0 +1,270 @@
+﻿<UserControl x:Class="PYAC.Views.PartsLoadPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:prism="http://prismlibrary.com/"        
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:PYAC.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" MaxWidth="870">
+
+    <Border Background="#f2f2f2 " BorderBrush="#dd565b" BorderThickness="2" Padding="0" Margin="5,20,0,20">
+
+
+        <Grid>
+            <!--COLUMNS-->
+            <Grid.ColumnDefinitions>
+                <!--NoCuisson-->
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!--ROWS-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="1.6*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="0.65*"/>
+                <RowDefinition Height="2*"/>
+
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="PARTS LOAD" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+
+
+            <!--Batch Info-->
+            <Grid Grid.Row="1" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <!--NoCuisson-->
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="5" Margin="2" />
+                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="#dd565b" BorderThickness="1.5" CornerRadius="5" Margin="2" />
+                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="#dd565b" BorderThickness="1.5" CornerRadius="5" Margin="2" />
+
+                <!--      <Border Grid.Row="1" Grid.Column="1" Background="White" BorderBrush="#dd565b" BorderThickness="1.5" CornerRadius="10,10,10,10" Margin="2" />
+            <Border Grid.Row="0" Grid.Column="3" Background="White" BorderBrush="#dd565b" BorderThickness="1.5" CornerRadius="10,10,10,10" Margin="2"/>
+                <Border Grid.Row="1" Grid.Column="2" Background="White" BorderBrush="#dd565b" BorderThickness="2" CornerRadius="10,10,10,10" Margin="2" />
+                <Border Grid.Row="1" Grid.Column="3" Background="White" BorderBrush="#dd565b" BorderThickness="2" CornerRadius="10,10,10,10" Margin="2" />
+-->
+                <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                    <TextBlock Text="Batch Number:" FontWeight="Bold" Margin="8"/>
+                    <TextBlock Text="{Binding BatchNumber}" Margin="0,9,0,0"/>
+                </StackPanel>
+                
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Text="Recipe:" FontWeight="Bold" Margin="8" />
+                    <TextBlock Text="{Binding CurrentSelectedRecipe}" Margin="0,9,0,0" />
+                </StackPanel>
+              
+                
+                
+                <ComboBox Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Recipes}" SelectedItem="{Binding CurrentSelectedRecipe}" Margin="8" BorderBrush="#dd565b"/>
+
+                <Button Grid.Row="0" Grid.Column="3" Content="Refresh Recipes" Command="{Binding RefreshRecipesCommand}" Background="White" MaxHeight="35" BorderThickness="1" Margin="3,0,0,0" BorderBrush="#dd565b" />
+                
+                
+                <!--     <TextBlock Grid.Row="1" Grid.Column="1" Text="Enchainement: ####" Margin="8"/>
+                <TextBox Grid.Row="1" Grid.Column="2" Margin="8" />
+                <ComboBox Grid.Row="1"  Grid.Column="3" Margin="8" />                              -->
+                
+                <Button Background="White" Grid.Row="1" Grid.Column="1" BorderThickness="1" BorderBrush="#dd565b" Margin="2" Content="End Cure" Command="{Binding EndCureCommand}"/>
+                <Button Background="White" Grid.Row="1" Grid.Column="0" BorderThickness="1" BorderBrush="#dd565b" Margin="2" Content="New Cure" Command="{Binding NavigateToNewCurePageCommand}"/>
+                
+
+            </Grid>
+            <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="Black" Height="2" Margin="3"/>
+
+
+            <Rectangle Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="Black" Height="2" Margin="3"/>
+            <!--PARTS-->
+            <Grid Grid.Row="2" Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.35*"/>
+                    <RowDefinition Height="1.1*"/>
+                </Grid.RowDefinitions>
+                
+
+                <Grid Grid.Row="0" Grid.ColumnSpan="8" Margin="8">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.7*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--ROWS-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Column="0" Text="Parts: "          Background="#f2f2f2 " FontSize="25" Margin="4"/>
+                    <Button    Grid.Column="1" Content="Add Part"      Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b" Command="{Binding NavigateToAddPartPageCommand}"/>
+                    <Button    Grid.Column="2" Content="Remove Part"   Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b" Command="{Binding RemovePartCommand}"/>
+                    <Button    Grid.Column="3" Content="Refresh Parts" Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b" Command="{Binding RefreshPartsCommand}"/>
+                    <Button    Grid.Column="4" Content="Print Parts"   Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b"/>
+                    <Button    Grid.Column="5" Content="Offline Load"  Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b"/>
+                    <Button    Grid.Column="6" Content="Commit Load"   Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b"/>
+                    <Button    Grid.Column="7" Content="Online Load"   Background="White" FontSize="10" Margin="4" BorderThickness="1" BorderBrush="#dd565b"/>
+                </Grid>
+
+                <DataGrid Name="dataGridParts" Grid.Row="2" Grid.ColumnSpan="8" Margin="10" BorderBrush="#dd565b" BorderThickness="2" CanUserAddRows="False"  AutoGenerateColumns="False" ItemsSource="{Binding Parts}" SelectedItem="{Binding Path=CurrentSelectedPart, Mode=TwoWay}" FontSize="15" FontFamily="Verdana">
+
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Number" Binding="{Binding part_Number}"/>
+                        <DataGridTextColumn Header="Traveller Number" Binding="{Binding traveller_Number}"/>
+                        <DataGridTextColumn Header="Operation" Binding="{Binding operation}"/>
+
+                    </DataGrid.Columns>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+
+                    </DataGrid.ColumnHeaderStyle>
+                </DataGrid>
+
+            </Grid>
+
+            <Rectangle Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="Black" Height="2" Margin="6"/>
+
+            <Grid Grid.Row="3" Margin="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.8*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="0.6*"/>
+                    <ColumnDefinition Width="2*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="3" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="5" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="6" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="7" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="9" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="10" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="1" />
+                <Border Grid.Row="0" Grid.Column="11" Background="White" BorderBrush="#dd565b" BorderThickness="1" CornerRadius="2" Margin="-14,0,0,0" MaxWidth="118"/>
+
+                <TextBlock Text="TC: " FontSize="15" FontWeight="Bold" Grid.Column="0" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Content="+" Background="White"  FontSize="12" Grid.Column="1" Margin="3" Command="{Binding AddTCCommand}" />
+                <Button Content="-" Background="White" FontSize="12" Grid.Column="2" Margin="3" Command="{Binding RemoveTCCommand}" />
+                <TextBox Text="{Binding TCPartToAdd, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" Margin="3"/>
+
+                <TextBlock Text="TR: " FontSize="15" FontWeight="Bold" Grid.Column="4" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Content="+" Background="White" FontSize="12" Grid.Column="5" Margin="3" />
+                <Button Content="-" Background="White" FontSize="12" Grid.Column="6" Margin="3" />
+                <TextBox Grid.Column="7" Margin="3"/>
+
+                <TextBlock Text="Source:" FontSize="15" FontWeight="Bold" Grid.Column="8" Margin="2" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <Button Content="+" Background="White" FontSize="12" Grid.Column="9" Margin="3" />
+                <Button Content="-" Background="White" FontSize="12" Grid.Column="10" Margin="3" />
+                <TextBox Grid.Column="11" Margin="-3,3,10,3" MaxWidth="114"/>
+            </Grid>
+            <Grid Grid.Row="4" Margin="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+ <!--               <DataGrid Name="dataGridTCS" Grid.Column="0" Margin="10" BorderBrush="#dd565b" BorderThickness="2" CanUserAddRows="False"  AutoGenerateColumns="False" ItemsSource="{Binding CurrentTCS}" SelectedItem="{Binding Path=CurrentSelectedRecipe, Mode=TwoWay}" FontSize="15" FontFamily="Verdana">
+
+
+                    <DataGrid.Columns>
+                        
+                        <DataGridTextColumn Header="Number" Binding="{Binding}"/>
+  
+                    </DataGrid.Columns>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+
+                    </DataGrid.ColumnHeaderStyle>
+                </DataGrid>
+        -->
+                <DataGrid Name="dataGridTCs" Grid.Row="0" Grid.Column="0" Margin="10" BorderBrush="#dd565b" BorderThickness="2" CanUserAddRows="False"  AutoGenerateColumns="False" ItemsSource="{Binding CurrentTCS}" SelectedValue="{Binding Path=CurrentSelectedTC, Mode=TwoWay}" FontSize="15" FontFamily="Verdana">
+
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
+                        <DataGridTextColumn Header="Number" Binding="{Binding sensor_Number}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource MetroDataGridColumnHeader}">
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                        </Style>
+
+                    </DataGrid.ColumnHeaderStyle>
+                </DataGrid>
+                
+<!--            <ListView Name="listViewTC" ItemsSource="{Binding CurrentTCS}" Grid.Column="0" Margin="10" BorderBrush="#dd565b" BorderThickness="2" >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+-->                
+                <Rectangle Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Fill="Black" Width="2" Margin="0"/>
+                <ListView Name="listViewTR" Grid.Column="1" Margin="10" BorderBrush="#dd565b" BorderThickness="2" />
+                <Rectangle Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Stretch" Fill="Black" Width="2" Margin="0"/>
+                <ListView Name="listViewSource" Grid.Column="2" Margin="10" BorderBrush="#dd565b" BorderThickness="2" />
+
+
+
+            </Grid>
+
+
+        </Grid>
+    </Border>
+
+</UserControl>

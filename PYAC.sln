@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PYAC", "PYAC\PYAC.csproj", "{55465C7B-A1CA-4C9E-B938-4EF2AF6F8FAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PYAC.Infrastructure", "PYAC.Infrastructure\PYAC.Infrastructure.csproj", "{03000F4A-1E11-42F9-8DDD-3EB25E4C44EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utl", "Utl\Utl.csproj", "{CDF08FA5-1201-411D-BEA0-9657B7388621}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{55465C7B-A1CA-4C9E-B938-4EF2AF6F8FAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55465C7B-A1CA-4C9E-B938-4EF2AF6F8FAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55465C7B-A1CA-4C9E-B938-4EF2AF6F8FAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55465C7B-A1CA-4C9E-B938-4EF2AF6F8FAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03000F4A-1E11-42F9-8DDD-3EB25E4C44EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03000F4A-1E11-42F9-8DDD-3EB25E4C44EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03000F4A-1E11-42F9-8DDD-3EB25E4C44EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03000F4A-1E11-42F9-8DDD-3EB25E4C44EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF08FA5-1201-411D-BEA0-9657B7388621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF08FA5-1201-411D-BEA0-9657B7388621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF08FA5-1201-411D-BEA0-9657B7388621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF08FA5-1201-411D-BEA0-9657B7388621}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6D8659C-9673-45AC-8324-2FEFF6E89CA6}
+	EndGlobalSection
+EndGlobal
