@@ -1,0 +1,446 @@
+﻿<UserControl x:Class="PYAC.Views.SegmentSummaryPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:prism="http://prismlibrary.com/"        
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:PYAC.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Border Background="#EFEFEF" BorderBrush="#d94449" BorderThickness="0.5" CornerRadius="10,10,10,10" Margin="0"  Padding="5">
+
+        <Grid>
+            <!--COLUMNS-->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!--ROWS-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="6*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="0">
+                <!--COLUMNS-->
+                <Grid.ColumnDefinitions>
+                    <!--NoCuisson-->
+                    <ColumnDefinition Width="*"/>
+                    <!--NoRecette-->
+                    <ColumnDefinition Width="*"/>
+                    <!--NbSegments-->
+                    <!--<ColumnDefinition Width="*"/>-->
+                    <!--Enchainement-->
+                    <ColumnDefinition Width="*"/>
+                    <!--Start/Stop-->
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+                    <!--No's Title-->
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="5,5,10,10" />
+                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="5,5,10,10" />
+                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="5,5,10,10"/>
+                <Border Grid.Row="0" Grid.Column="3" Background="White" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="5,5,10,10"/>
+                <!--<Border Grid.Row="0" Grid.Column="4" Background="White" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="3"/>-->
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="5" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="3" Margin="0"/>
+
+                <Rectangle Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="2" Stroke="#d94449" />
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="9">
+                    <TextBlock Text="Batch Number: " FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                    <TextBlock Text="{Binding BatchNumber}" FontSize="20" FontFamily="verdana"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Status: " FontSize="19" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding TitleMenuStatus}" FontSize="19" FontFamily="verdana"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Rectangle Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="2" Stroke="#d94449" />
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Margin="9">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Recipe Number: " FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding RecipeNumber}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock  Text="Recipe Name: " FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                        <TextBlock  Text="{Binding RecipeName}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <Rectangle Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="2" Stroke="#d94449" />
+                <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Number of Segments: " Margin="9,9,0,9" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding NbSegments}" Margin="0,9,0,9" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                    </StackPanel>
+                </StackPanel>
+
+                <!--<Rectangle Grid.RowSpan="2" Grid.Column="3" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="1" Margin="0" Stroke="#d94449" />
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Margin="9">
+                    <TextBlock Text="Enchainement: ##" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                    <TextBlock  Text="Nom: ssssss" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                </StackPanel>-->
+
+                <StackPanel Orientation="Vertical" Grid.RowSpan="2" Grid.Column="4" Margin="9" >
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Start Time: " FontSize="20" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding StartTime}" FontSize="20" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="End Time: " FontSize="20" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding EndTime}" FontSize="20" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Duration: " FontSize="20" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding Duration}" FontSize="20" FontFamily="verdana"/>
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--ROWS-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,5,10,10" />
+                <Border Grid.Row="0" Grid.Column="1" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,5,10,10" />
+                <Border Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,5,10,10" />
+                <Border Grid.Row="0" Grid.Column="3" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,5,10,10" />
+                <Border Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,2,10,-5" />
+                <Border Grid.Row="1" Grid.Column="1" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,2,10,-5" />
+                <Border Grid.Row="1" Grid.Column="2" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,2,10,-5" />
+                <Border Grid.Row="1" Grid.Column="3" Background="White" BorderThickness="2" CornerRadius="10,10,10,10" Margin="5,5,10,-5" />
+
+
+                <!--TEMP 1-->
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0" Margin="14,-10,14,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Temp Zone 1" HorizontalAlignment="Center" FontSize="25" FontFamily="verdana" FontWeight="Bold" Margin="0,15,0,0"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+                        <TextBlock Text="‣ SP........" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding SetPt}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ O/P......" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding Zone1OP}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Cool....." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding ZoneCool}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="35" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding Zone1Temp}" Margin="20"/>
+                        <TextBlock  Text=" °F" FontSize="35" FontFamily="verdana" HorizontalAlignment="Center" Margin="-20,20,0,20"/>
+                    </StackPanel>
+                </StackPanel>
+                <Rectangle Grid.RowSpan="2" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="2" Stroke="#d94449" />
+
+                <!--TEMP 2-->
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0" Margin="0,-13,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Temp Zone 2" HorizontalAlignment="Center" FontSize="25" FontFamily="verdana" FontWeight="Bold" Margin="0,15,0,0"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+                    <StackPanel Orientation="Horizontal" Margin="0,25,0,0">
+                        <TextBlock Text="‣ SP........" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding SetPt}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ O/P......." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding Zone2OP}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Cool......" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding ZoneCool}"/>
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="35" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding Zone2Temp}" Margin="20"/>
+                        <TextBlock  Text=" °F" FontSize="35" FontFamily="verdana" HorizontalAlignment="Center" Margin="-20,20,0,20"/>
+                    </StackPanel>
+                </StackPanel>
+                <Rectangle Grid.RowSpan="2" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="0,-15,2,2" Stroke="#d94449" />
+
+
+
+                <!--RUNNING SEGMENT-->
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1" Margin="14,20,14,0" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Running Segment # " HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana" FontWeight="Bold"/>
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding RunningNb}"/>
+                    </StackPanel>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Rem. Segs Curr. Recipe: " HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana"/>
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding RunningRemSegments}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Ramp............" HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana"/>
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" MinWidth="35" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding RunningRampHrUI}"/>
+                        <TextBlock Text=" °F/Hr" HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Ramp............" HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana"/>
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" MinWidth="38" FontFamily="verdana" HorizontalAlignment="Center" Text="{Binding RunningRampMinUI }"/>
+                        <TextBlock Text=" °F/Min" HorizontalAlignment="Center"  FontSize="20" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Set Pt..........." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding SetPt}" FontSize="{StaticResource segmentSummaryText}" MinWidth="42" FontFamily="verdana" HorizontalAlignment="Center" />
+                        <TextBlock  Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Soak............." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding RunningSoak}" FontSize="{StaticResource segmentSummaryText}" MinWidth="42"  FontFamily="verdana"/>
+                        <TextBlock  Text=" Min" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" HorizontalAlignment="Center"/>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Status: " FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                        <TextBlock Text="{Binding RunningStatusUI}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Set Pt Adjust" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana"/>
+                        <TextBlock Text="(±20):" FontSize="15" FontFamily="verdana" Margin="5,5,0,0"/>
+                        <TextBox TextAlignment="Center" MinWidth="30" Text="{Binding OffsetEnteredAdj}" Margin="0,0,2,0" />
+                        <Button Content="Adjust" Background="White" BorderBrush="#dd565b" BorderThickness="2" Command="{Binding SetPtAdjCommand}" />
+                    </StackPanel>
+                    <Button Content="Skip Segment" Background="White" MinHeight="10" BorderBrush="#dd565b" BorderThickness="2" Margin="2" Command="{Binding SkipCommand}" />
+                    <!--</StackPanel>-->
+                </StackPanel>
+
+                <!--NEXT SEGMENT-->
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1" Margin="9"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Next Segment # " HorizontalAlignment="Center" FontSize="20" FontFamily="verdana" FontWeight="Bold"/>
+                        <TextBlock FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" FontWeight="Bold" HorizontalAlignment="Center" Text="{Binding NextNb}"/>
+                    </StackPanel>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Ramp........." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding NextRampHr}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text=" °F/Hr" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Ramp........." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding NextRampMin}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text=" °F/Hr" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Set Pt........." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding NextSetPt}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text=" °F" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Soak..........." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text="{Binding NextSoak}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                        <TextBlock Text=" Min" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" />
+                    </StackPanel>
+
+                    <Button Content="Segment Parameters" Background="White" BorderBrush="#dd565b" BorderThickness="2" Command="{Binding NavigateToSegmentParameterPageCommand}"/>
+                </StackPanel>
+                <Rectangle Grid.Row="0" Grid.ColumnSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+                <Rectangle Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="0,-1,2,2" Stroke="#d94449" />
+
+                <!--TC Trend-->
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2" Margin="14,10,14,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="TC Trend" HorizontalAlignment="Center" FontSize="25" FontFamily="verdana" FontWeight="Bold"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="2"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Nb of Active TC.........." FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TCActive}" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Lowest TC Reading....." FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TCLowest}" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Highest TC Reading...." FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TCHighest}" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Avg TC Reading........." FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding CalculatedTCAvg }" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <TextBlock Text="‣ Gbl Avg TC Reading" FontSize="20" FontFamily="verdana" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="  within 30 Sec............" FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TCGblAverage}" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                </StackPanel>
+                <!--TR Trend-->
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" Margin="0,0,0,60" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="TR Trend" HorizontalAlignment="Center" FontSize="25" FontFamily="verdana" FontWeight="Bold"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="0"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Min Reading in Hg......." FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TRLowest }" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Max Reading in Hg......" FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding TRHighest }" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="‣ Avg Reading in Hg......" FontSize="20" FontFamily="verdana" />
+                        <TextBlock Text="{Binding CalculatedTRAvg }" FontSize="20" FontFamily="verdana" />
+                    </StackPanel>
+                </StackPanel>
+                <Rectangle Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="2" Margin="0,-26,2,2" Stroke="#d94449" />
+
+
+
+                <!--Parts Temp Control-->
+                <StackPanel Grid.Row="0" Grid.Column="3" Margin="0,3.5,0,0">
+                    <TextBlock Text="Parts Temp Control" HorizontalAlignment="Center" FontSize="21" FontFamily="verdana" FontWeight="Bold"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="7,-8,12,0"/>
+                </StackPanel>
+                <Grid Grid.Row="0" Grid.Column="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.5*"/>
+                        <ColumnDefinition Width="0.9*"/>
+                        <ColumnDefinition Width="*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <!--ROWS-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="1.2*"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Alarm Delay Sec:" HorizontalAlignment="Left" FontSize="12" FontFamily="verdana" Margin="10,5,0,0"/>
+                    <Rectangle Grid.RowSpan="11" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="1" Margin="0,29,5,12" Stroke="Black" />
+                    <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Text="Min Soak Limit:" FontSize="12" FontFamily="verdana" Margin="10,5,0,0"/>
+                    <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Text="Max Soak Limit:" FontSize="12" FontFamily="verdana" Margin="10,5,0,0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" Text="Low Temp Set Pt:" FontSize="12" FontFamily="verdana" Margin="10,5,0,0"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" Text="Ramp Rate Tolerance Max:" FontSize="10.5" FontFamily="verdana" Margin="10,0,0,0"/>
+                    <TextBlock Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" Text="&#x0a;(+/- 15°F/Min)" FontSize="8.5" FontFamily="verdana" Margin="0,3,0,0"/>
+                    <TextBlock Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" Text="Ramp Rate Tolerance Min:" FontSize="10.5" FontFamily="verdana" Margin="10,0,0,0"/>
+                    <TextBlock Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" Text="&#x0a;(+/- 15°F/Min)" FontSize="8.5" FontFamily="verdana" Margin="0,3,0,0"/>
+                    <TextBlock Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" Text="Temp Threshold:" FontSize="12" FontFamily="verdana" Margin="10,7,0,0"/>
+                    <TextBlock Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" Text="Unseal Door Max Temp:" FontSize="12" FontFamily="verdana" Margin="9,5,0,0"/>
+
+
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Desired Value" HorizontalAlignment="Center" FontSize="12"  FontWeight="Bold" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <Rectangle Grid.RowSpan="11" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="1" Margin="0,29,-3,12" Stroke="Black" />
+                    <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding PartsAlarmDelay}"  MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,3,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding PartsMinSoak}"     MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding PartsMaxSoak}"     MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Text="{Binding PartsLowTemp}"     MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="6" Grid.Column="1" Text="{Binding PartsRampRateMax}" MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="7" Grid.Column="1" Text="{Binding PartsRampRateMin}" MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="8" Grid.Column="1" Text="{Binding PartsTempThresh}"  MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+                    <TextBox Grid.Row="9" Grid.Column="1" Text="{Binding PartsUnsealDoor}"  MinWidth="47" TextAlignment="Center" FontSize="15" Margin="20,0,30,0" FontFamily="verdana"/>
+
+
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="Confirmation" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" FontFamily="verdana" Margin="-9,5,0,0"/>
+                    <TextBlock Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCAlarmDelay, Mode=OneWayToSource}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="3" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCMinSoak}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="4" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCMaxSoak}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCLowTemp}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCRampRateMax}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="7" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCRampRateMin}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="8" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCTempThresh}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+                    <TextBlock Grid.Row="9" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding PartsPLCUnsealDoor}" FontSize="15" FontFamily="verdana" Margin="0,5,0,0"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="3" Text="Confirmation" HorizontalAlignment="Center" FontSize="12" FontWeight="Bold" FontFamily="verdana" Margin="-9,5,0,0"/>
+                    <!--<Button Name="lowTempOffBtn" Content="Low Temp Off" Grid.Column="1" Grid.Row="10" Margin="0,-6,0,3" Width="90" MaxHeight="1" Padding="0" Click="lowTempOffBtn_Click"/>-->
+                    <ToggleButton Name="lowTempOffBtn" Content="{Binding LowTempLabel}" Grid.Column="0" Grid.Row="10" Margin="0,-6,0,3" Width="90" MaxHeight="1" Padding="0" Command="{Binding LowTempCommand}"/>
+                    <Button Grid.Column="1" Grid.Row="10" Content="Apply Changes" Margin="0,-6,0,3" Width="90" MaxHeight="1" Padding="0" Command="{Binding PartsApplyCommand}"/>
+
+
+
+                </Grid>
+
+
+                <!--Timer-->
+                <StackPanel Grid.Row="1" Grid.Column="3">
+                    <TextBlock Text="Timer" HorizontalAlignment="Center" FontSize="25" FontFamily="verdana" FontWeight="Bold"/>
+                    <Rectangle VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Fill="#d94449" Height="2" Margin="7,-8,12,0"/>
+                </StackPanel>
+
+                <Grid Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--ROWS-->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="1" Grid.ColumnSpan="3"  HorizontalAlignment="Center" Text="Enter Value" FontSize="18.5" FontWeight="Bold" FontFamily="verdana" Margin="0,30,0,0"/>
+
+                    <TextBox Name="hrTxtBox" Text="{Binding HrLabel}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="15"  Margin="0,5,0,5" FontFamily="verdana"/>
+                    <TextBox Name="minTxtBox" Text="{Binding MinLabel}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" FontSize="15"  Margin="0,5,0,5" FontFamily="verdana"/>
+                    <TextBox Name="secTxtBox" Text="{Binding SecLabel}" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Center" FontSize="15"  Margin="0,5,0,5" FontFamily="verdana"/>
+                    <TextBlock Grid.Row="3" Grid.Column="0"  HorizontalAlignment="Center" Text="Hr" FontSize="15" FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" Text="Min" FontSize="15" FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <TextBlock  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center" Text="Sec" FontSize="15" FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <ToggleButton Grid.Row="4" Grid.ColumnSpan="4" Content="{Binding StartStopLabel}" Background="White" BorderBrush="#dd565b" BorderThickness="2" Margin="0" Command="{Binding StartStopCommand}"/>
+
+
+                    <!--
+                        <TextBlock Grid.Row="5" Grid.ColumnSpan="3"  HorizontalAlignment="Center" Text="Current Value" FontSize="18.5" FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                        <TextBlock Grid.Row="6" Grid.Column="0"  HorizontalAlignment="Center" Text="{Binding TimeFromStart}" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" Margin="5"/>
+                        <TextBlock Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Name="testerr" Text="###." FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" Margin="5"/>
+                        <TextBlock  Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" Text="###" FontSize="{StaticResource segmentSummaryText}" FontFamily="verdana" Margin="5"/>
+                    -->
+                    <Label x:Name="testerr" Content="{Binding TimerLabel}" Grid.Row="5" Grid.ColumnSpan="5"  HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="0"  HorizontalAlignment="Center" Text="Hr" FontSize="15"       FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <TextBlock Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" Text="Min" FontSize="15"   FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <TextBlock  Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" Text="Sec" FontSize="15"  FontWeight="Bold" FontFamily="verdana" Margin="5"/>
+                    <Button Grid.Row="8" Grid.ColumnSpan="3" Content="RUN" Background="White" BorderBrush="#dd565b" BorderThickness="2"/>
+
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>
